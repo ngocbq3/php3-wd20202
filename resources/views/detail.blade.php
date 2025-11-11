@@ -5,25 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test hiển thị posts</title>
+    <title>{{ $post->title }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>Danh sách bài viết</h1>
-    @foreach ($posts as $post)
+    <div class="container">
+        <nav>
+            MENU
+        </nav>
         <div>
-            <a href="#">
-                <h3>{{ $post->title }}</h3>
-            </a>
-            <div>
-                {{ $post->description }}
-            </div>
-            <hr>
+            <h2>{{ $post->title }}</h2>
+            <p>
+                {{ $post->content }}
+            </p>
         </div>
-    @endforeach
-    <div>
-        {{ $posts->links() }}
     </div>
 </body>
 

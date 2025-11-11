@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //ĐỊnh nghĩa đường dẫn cho website
 Route::get('/about', function () {
@@ -37,3 +36,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 //Sử dụng controller
 Route::get('/demo', [DemoController::class, 'index']);
+
+//Chi tiết bài viết
+Route::get('/detail/{id}', [DemoController::class, 'show'])->name('posts.detail');
+//Danh sách bài viết theo danh mục
+Route::get('/category/{id}', [DemoController::class, 'list'])->name('posts.list');
