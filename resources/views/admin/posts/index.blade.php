@@ -14,7 +14,7 @@
                     <th scope="col">Image</th>
                     <th scope="col">Category Name</th>
                     <th scope="col">
-                        <a href="" class="btn btn-primary">Create</a>
+                        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Create</a>
                     </th>
                 </tr>
             </thead>
@@ -24,7 +24,7 @@
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->title }}</td>
                         <td>
-                            <img src="{{ $post->image }}" width="100">
+                            <img src="{{ Storage::URL($post->image) }}" width="100">
                         </td>
                         <td>{{ $post->category->name }}</td>
                         <td>
