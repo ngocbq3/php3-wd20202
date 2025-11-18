@@ -11,7 +11,9 @@ class PostController extends Controller
     public function index()
     {
         //Lấy dữ liệu
-        $posts = Post::with('category')->paginate(10);
+        $posts = Post::with('category')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
         return view('admin.posts.index', compact('posts'));
     }
