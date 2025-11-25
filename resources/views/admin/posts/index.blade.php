@@ -28,7 +28,7 @@
                         </td>
                         <td>{{ $post->category->name }}</td>
                         <td>
-                            edit/delete
+                            <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Edit</a>
                         </td>
                     </tr>
                 @endforeach

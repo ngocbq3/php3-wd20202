@@ -10,29 +10,43 @@
             @csrf
             <div class="mb-3">
                 <label for="" class="form-label">Title</label>
-                <input type="text" name="title" id="" class="form-control">
+                <input type="text" name="title" value="{{ old('title') }}" class="form-control">
+                @error('title')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Category</label>
                 <select name="category_id" id="" class="form-control">
+                    <option value="" selected>Chọn danh mục</option>
                     @foreach ($categories as $cate)
                         <option value="{{ $cate->id }}">
                             {{ $cate->name }}
                         </option>
                     @endforeach
                 </select>
+                @error('category_id')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Image</label>
                 <input type="file" name="image" id="" class="form-control">
+                @error('image')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Description</label>
-                <textarea name="description" rows="5" class="form-control"></textarea>
+                <textarea name="description" rows="5" class="form-control">{{ old('description') }}</textarea>
+
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Content</label>
-                <textarea name="content" rows="10" class="form-control"></textarea>
+                <textarea name="content" rows="10" class="form-control">{{ old('content') }}</textarea>
+                @error('content')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Create</button>
