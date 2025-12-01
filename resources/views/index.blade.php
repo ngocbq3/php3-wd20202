@@ -18,6 +18,18 @@
                     {{ $cate->name }}
                 </a>
             @endforeach
+
+            @if (Auth::check())
+                {{ Auth::user()->email }}
+
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+            @endif
         </nav>
         <div class="container">
             <h2>Danh sách bài viết mới nhất</h2>

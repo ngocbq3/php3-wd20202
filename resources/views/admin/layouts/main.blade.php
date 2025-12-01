@@ -12,7 +12,13 @@
 <body>
     <div class="container">
         <nav>MENU</nav>
+        
+        {{ Auth::user()->email }}
 
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
         @yield('content')
 
         <footer>Footer</footer>
